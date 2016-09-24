@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Puntuaciones</title>
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-app="Novatos">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Puntuaciones novatos</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li ng-class="$location.path() === '/puntos' ? 'active' : ''" ><a href="#puntos"><i class="fa fa-bar-chart" aria-hidden="true"></i> Puntos<span class="sr-only">(current)</span></a></li>
+                    <li ng-class="$location.path() === '/novatos' ? 'active' : ''" ><a href="#novatos"><i class="fa fa-users" aria-hidden="true"></i> Novatos<span class="sr-only">(current)</span></a></li>
+                    <li ng-class="$location.path() === '/padrinos' ? 'active' : ''" ><a href="#padrinos"><i class="fa fa-user" aria-hidden="true"></i> Padrinos<span class="sr-only">(current)</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" ng-view></div>
+
+    <script src="/lib/jquery/js/jquery.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/lib/angular/js/angular.min.js"></script>
+    <script src="/lib/angular/js/angular-route.min.js"></script>
+    <script src="/js/util/util.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/service/login.service.js"></script>
+    <script src="/js/controller/login.controller.js"></script>
+    <script src="/js/service/novatos.service.js"></script>
+    <script src="/js/controller/novatos.controller.js"></script>
+    <script src="/js/service/padrinos.service.js"></script>
+    <script src="/js/controller/padrinos.controller.js"></script>
+    <script src="/js/service/acciones.service.js"></script>
+    <script src="/js/controller/puntos.controller.js"></script>
+    <script src="/js/directives/accion.directive.js"></script>
+</body>
+</html>

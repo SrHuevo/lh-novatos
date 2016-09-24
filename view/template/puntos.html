@@ -1,0 +1,48 @@
+<div class="col-xs-12" ng-repeat="padrino in padrinos">
+    <label class="label-control">{{padrino.nombre}}</label>
+    <div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{padrino.puntos}}" aria-valuemin="0" aria-valuemax="500" style="width: {{padrino.puntos/5}}%; min-width: 2em">{{padrino.puntos}}</div></div>
+</div>
+<form ng-show="isAdmin()" ng-submit="submitForm()" class="col-xs-12">
+    <div class="form-group form-inline">
+        <select id="padrino" class="form-control" ng-model="accion.padrino">
+            <option value="">Seleccione un padrino...</option>
+            <option ng-repeat="padrino in padrinos" ng-model="padrino.nombre">{{padrino.nombre}}</option>
+        </select>
+        <select id="padrino" class="form-control" ng-model="accion.novato" ng-disabled="accion.padrino === undefined">
+            <option value="" selected>Seleccione un novato...</option>
+            <option ng-repeat="novato in novatos" ng-show="novato.padrino===accion.padrino" ng-model="accion.nombre">{{novato.nombre}}</option>
+        </select>
+        <input type="text" class="form-control" placeforme="puntos" ng-model="accion.puntos">
+    </div>
+    <div class="form-group">
+        <textarea rows="8" cols="40" class="form-control" ng-model="accion.motivo"></textarea>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir</button>
+    </div>
+</form>
+<h1>Historico</h1>
+<div class="col-xs-12">
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th class="col-xs-1"></th>
+            <th class="col-xs-1">Fecha</th>
+            <th class="col-xs-1">Puntuación</th>
+            <th class="col-xs-1">Padrino</th>
+            <th class="col-xs-1">Novato</th>
+            <th class="col-xs-7">Motivo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="accion in acciones">
+            <td class="col-xs-1">{{$index + 1}}</td>
+            <td class="col-xs-1">{{formatDate(accion.date)}}</td>
+            <td class="col-xs-1">{{accion.puntos}}</td>
+            <td class="col-xs-1">{{accion.padrino}}</td>
+            <td class="col-xs-1">{{accion.novato}}</td>
+            <td class="col-xs-7">{{accion.motivo}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

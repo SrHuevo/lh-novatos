@@ -1,0 +1,34 @@
+<form ng-show="isAdmin()" ng-submit="submitForm()">
+    <div class="form-group">
+        <select class="form-control" ng-model="novato.padrino" ng-options="padrino.nombre as padrino.nombre for padrino in padrinos track by padrino.nombre">
+            <option value="">Seleccione un padrino...</option>
+        </select>
+        <input class="form-control" id="name" type="text" ng-model="novato.nombre" placeholder="nombre novato">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir</button>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thea>
+        <tr>
+            <th>Padrino</th>
+            <th>Nombre</th>
+            <th>Puntos</th>
+        </tr>
+    </thea>
+    <tbody>
+        <tr ng-repeat="novato in novatos">
+            <td>
+                {{novato.padrino}}
+            </td>
+            <td>
+                {{novato.nombre}}
+            </td>
+            <td>
+                {{novato.puntos}}
+            </td>
+        </tr>
+    </tbody>
+</table>

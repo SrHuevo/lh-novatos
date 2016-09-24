@@ -1,0 +1,28 @@
+<form ng-show="isAdmin()" ng-submit="submitForm()">
+    <div class="form-group">
+        <label class="control-label" for="name">Nombre:</label>
+        <input class="form-control" id="name" type="text" ng-model="padrino.nombre">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir</button>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Padrino</th>
+            <th>Puntos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="padrino in padrinos">
+            <td>
+                {{padrino.nombre}}
+            </td>
+            <td>
+                {{padrino.puntos}}
+            </td>
+        </tr>
+    </tbody>
+</table>

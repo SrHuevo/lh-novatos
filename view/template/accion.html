@@ -1,0 +1,10 @@
+<tr>
+    <td>{{$index + 1}}</td>
+    <td>{{accion.puntos}}</td>
+    <td>{{accion.padrino}}</td>
+    <td>{{accion.novato}}</td>
+    <td><i class="fa fa-2x" ng-class="aux[$index].abierto ? 'fa-angle-up' : 'fa-angle-down'" aria-hidden="true" ng-click=abrir(aux[$index])></i></td>
+</tr>
+<tr class="collapse">
+    <td><textarea rows="8" cols="40" id="{{aux[$index].id}}" readonly>{{accion.motivo}}</textarea></td>
+</tr>
