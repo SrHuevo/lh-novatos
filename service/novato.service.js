@@ -10,7 +10,7 @@ module.exports.update = function(accion, callback, error){
 }
 
 module.exports.find = function(){
-    return Novato.find({});
+    return Novato.find({}).sort('-puntos').exec();
 }
 
 module.exports.save = function(novato){
