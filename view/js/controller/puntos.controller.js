@@ -20,7 +20,12 @@ novatos.controller('PuntosController', function($scope, AccionesService, Padrino
 
     $scope.submitForm = function(){
         AccionesService.new($scope.accion).then(function(response){
-            $scope.acciones.push(response.data);
+            var accion = response.data;
+            $scope.acciones.push(accion);
+            $scope.padrinos.forEach(function(e,i){
+                if(accion.padrino == e.nombre)
+                    e.puntos = e.puntos + accion.puntos;
+            })
         }, function(err){
             alert(err);
         });
