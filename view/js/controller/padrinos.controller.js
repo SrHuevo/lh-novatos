@@ -2,8 +2,17 @@ novatos.controller('PadrinosController', function($scope, PadrinosService){
     $scope.padrinos = [];
     PadrinosService.getList().then(function(response){
         $scope.padrinos = response.data;
+        $scope.padrinos.forEach(function(e,i){
+            $scope.mapPadrinos[e.padrinos] = {};
+        });
     }, function(err) {
         alert(err);
+    });
+    $scope.novatos = [];
+    NovatosService.getList().then(function(response){
+        response.data;
+    }, function() {
+        LoginService.logout();
     });
 
     $scope.submitForm = function(){

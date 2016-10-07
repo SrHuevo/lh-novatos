@@ -1,6 +1,6 @@
 <div class="col-xs-12" ng-repeat="padrino in padrinos">
     <label class="label-control">{{padrino.nombre}}</label>
-    <div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{padrino.puntos}}" aria-valuemin="0" aria-valuemax="500" style="width: {{padrino.puntos/5}}%; min-width: 2em">{{padrino.puntos}}</div></div>
+    <div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{padrino.puntos}}" aria-valuemin="0" aria-valuemax="2000" style="width: {{padrino.puntos/20}}%; min-width: 2em">{{padrino.puntos}}</div></div>
 </div>
 <form ng-show="isAdmin()" ng-submit="submitForm()" class="col-xs-12">
     <div class="form-group form-inline">
