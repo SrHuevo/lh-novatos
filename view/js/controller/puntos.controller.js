@@ -44,4 +44,12 @@ novatos.controller('PuntosController', function($scope, AccionesService, Padrino
         var seg = date.substr(17,2);
         return dia+'/'+mes+'/'+año+' '+hora+':'+min+':'+seg;
     }
+
+    $scope.delete = function(index){
+        AccionesService.delete($scope.acciones[index]).then(function(){
+            $scope.acciones.splice(index,1)
+        }, function(err){
+            alert(err.msg);
+        });
+    }
 });

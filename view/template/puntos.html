@@ -26,22 +26,24 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th class="col-xs-1"></th>
-            <th class="col-xs-1">Fecha</th>
-            <th class="col-xs-1">Puntuación</th>
-            <th class="col-xs-1">Padrino</th>
-            <th class="col-xs-1">Novato</th>
-            <th class="col-xs-7">Motivo</th>
+            <th></th>
+            <th>Fecha</th>
+            <th>Puntuación</th>
+            <th>Padrino</th>
+            <th>Novato</th>
+            <th>Motivo</th>
+            <th ng-show="isAdmin()"></th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="accion in acciones">
-            <td class="col-xs-1">{{$index + 1}}</td>
-            <td class="col-xs-1">{{formatDate(accion.date)}}</td>
-            <td class="col-xs-1">{{accion.puntos}}</td>
-            <td class="col-xs-1">{{accion.padrino}}</td>
-            <td class="col-xs-1">{{accion.novato}}</td>
-            <td class="col-xs-7">{{accion.motivo}}</td>
+            <td>{{$index + 1}}</td>
+            <td>{{formatDate(accion.date)}}</td>
+            <td>{{accion.puntos}}</td>
+            <td>{{accion.padrino}}</td>
+            <td>{{accion.novato}}</td>
+            <td>{{accion.motivo}}</td>
+            <td ng-show="isAdmin()"><i class="fa fa-trash-o" aria-hidden="true" ng-click="delete($index)"></i></td>
         </tr>
     </tbody>
 </table>

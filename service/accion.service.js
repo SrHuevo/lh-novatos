@@ -6,3 +6,6 @@ module.exports.find = function(){
 module.exports.save = function(accion){
     return accion.save();
 }
+module.exports.remove = function(id){
+    return Accion.remove({_id:id});
+}

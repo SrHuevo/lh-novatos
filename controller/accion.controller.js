@@ -18,7 +18,6 @@ module.exports.controller = function(app) {
 	app.put('/api/accion', function(req, resp) {
 		UserService.checkUser(req.get('Authorization'), function(){
 			var accion = new Accion(req.body);
-			console.log('accion: ' + accion);
 			AccionService.save(accion).then(function(err){
 				if(err){
 					resp.status(500);
@@ -41,6 +40,22 @@ module.exports.controller = function(app) {
 						console.log("actualiza novato");
 					});
 				});
+			});
+		}, function(err){
+			resp.status(403);
+			resp.write(err);
+			resp.end();
+		});
+	});
+
+	app.delete('/api/accion/:id', function(req, resp) {
+		UserService.checkUser(req.get('Authorization'), function(){
+			AccionService.remove(req.params.id).then(function(success){
+				resp.end();
+			}, function(err){
+				resp.status(500);
+				resp.write(JSON.stringify(err));
+				resp.end();
 			});
 		}, function(err){
 			resp.status(403);
